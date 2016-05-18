@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
   <title>Cadastro Funcionario</title>
   <meta name="viewport" content="width=device-width">
