@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.9
+-- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 01/06/2016 às 06h18min
--- Versão do Servidor: 5.5.20
--- Versão do PHP: 5.3.9
+-- Máquina: localhost
+-- Data de Criação: 01-Jun-2016 às 13:25
+-- Versão do servidor: 5.6.13
+-- versão do PHP: 5.4.17
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `library`
+-- Base de Dados: `library`
 --
+CREATE DATABASE IF NOT EXISTS `library` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `library`;
 
 -- --------------------------------------------------------
 
@@ -33,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   `pages` varchar(100) NOT NULL,
   `stash` varchar(100) NOT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Extraindo dados da tabela `book`
@@ -46,7 +48,8 @@ INSERT INTO `book` (`id`, `name`, `writer`, `pages`, `stash`) VALUES
 (4, 'DONE', 'teste Autor', '199', '3'),
 (5, 'DONE', 'teste Autor', '199', '3'),
 (6, 'DONE', 'teste Autor', '199', '3'),
-(7, 'DONE', 'teste Autor', '199', '3');
+(7, 'DONE', 'teste Autor', '199', '3'),
+(8, 'Teste livro aula', '38773878', '78787878', '348378');
 
 -- --------------------------------------------------------
 
@@ -65,14 +68,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `extra` varchar(100) NOT NULL,
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   UNIQUE KEY `is` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `client`
 --
 
 INSERT INTO `client` (`name`, `phone`, `mail`, `cpf`, `neighborhood`, `street`, `house`, `extra`, `id`) VALUES
-('teste', '5454545455', 'pv.ciria@gmail.com', '86874787878', 'teste bairro', 'teste rua', 'teste ap', 'teste complemento', 1);
+('teste', '5454545455', 'pv.ciria@gmail.com', '86874787878', 'teste bairro', 'teste rua', 'teste ap', 'teste complemento', 1),
+('tt', 'ttt', 'ttt', 'tttt', 'tt', 'ttt', 'ttt', 'ttt', 2);
 
 -- --------------------------------------------------------
 
@@ -90,15 +94,63 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `house` varchar(100) NOT NULL,
   `extra` varchar(100) NOT NULL,
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `idType` smallint(6) NOT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `employee`
 --
 
-INSERT INTO `employee` (`name`, `phone`, `mail`, `cpf`, `neighborhood`, `street`, `house`, `extra`, `id`) VALUES
-('teste', '5454545455', 'pv.ciria@gmail.com', '86874787878', 'teste bairro', 'teste rua', 'teste ap', 'teste complemento', 1);
+INSERT INTO `employee` (`name`, `phone`, `mail`, `cpf`, `neighborhood`, `street`, `house`, `extra`, `id`, `idType`) VALUES
+('Fulano', '(51)536536536', 'teste@gmail.com', '898399898989', '989898', '98989', '8989', '99898998', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `rent`
+--
+
+CREATE TABLE IF NOT EXISTS `rent` (
+  `idRent` int(11) NOT NULL,
+  `idEmployee` int(11) DEFAULT NULL,
+  `idClient` int(11) DEFAULT NULL,
+  `idBook` int(11) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idRent`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `rent`
+--
+
+INSERT INTO `rent` (`idRent`, `idEmployee`, `idClient`, `idBook`, `date`) VALUES
+(0, 1, 1, 1, '2016-06-01 13:23:49'),
+(1, 1, 1, 1, '2016-06-01 13:24:15');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `typeemployee`
+--
+
+CREATE TABLE IF NOT EXISTS `typeemployee` (
+  `idType` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idType`),
+  UNIQUE KEY `id` (`idType`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `typeemployee`
+--
+
+INSERT INTO `typeemployee` (`idType`, `type`) VALUES
+(1, 'Funcionario'),
+(2, 'Funcionario'),
+(3, 'Atendente'),
+(4, 'Gerente');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

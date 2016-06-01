@@ -16,10 +16,10 @@
         <h3 class="text-muted">Portal biblioteca</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li class="active"><a href="#">Principal</a></li>
-            <li><a href="cadastroLivro.php">Cadastro de Livro</a></li>
-            <li><a href="cadastroCliente.php">Cadastro de Clientes</a></li>
-            <li><a href="cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
+            <li class="active"><a href="principal.php">Principal</a></li>
+            <li><a href="./cadastroLivro.php">Cadastro de Livro</a></li>
+            <li><a href="./cadastroCliente.php">Cadastro de Clientes</a></li>
+            <li><a href="./cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
             <li><a href="#">Realizar Aluguel</a></li>           
           </ul>
         </nav>
