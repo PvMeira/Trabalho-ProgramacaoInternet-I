@@ -1,3 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" href="../css/bootstrap.css">
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <meta name="viewport" content="width=device-width">
+  
+</head>
+<body>
+<div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-muted">Portal biblioteca</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#">Principal</a></li>
+            <li><a href="cadastroLivro.php">Cadastro de Livro</a></li>
+            <li><a href="cadastroCliente.php">Cadastro de Clientes</a></li>
+            <li><a href="cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
+            <li><a href="#">Realizar Aluguel</a></li>           
+          </ul>
+        </nav>
+      </div>
 <?php
 /**
  * Created by PhpStorm.
@@ -5,12 +30,23 @@
  * Date: 17/05/2016
  * Time: 23:15
  */
-
-
-
-
-
-
-
-
+$name=$_GET['name'];
+$writer=$_GET['Writer'];
+$pages=$_GET['pages'];
+$stash=$_GET['stash'];
+if ($name==''||$writer==''||$pages==''||$stash=='')
+	print("Faltou preencher algum campo.");
+else
+{
+	require("../conecta.inc");
+	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	
+	mysql_query("insert into book (name,writer,pages,stash) values ('$name','$writer','$pages','$stash')") 
+	or die ("Não é possível inserir Livro!");
+	
+	print("Livro Inserido com sucesso !");
+}
 ?>
+ 
+</body>
+</html>

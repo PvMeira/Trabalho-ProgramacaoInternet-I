@@ -9,7 +9,7 @@
 function conecta_bd()
 {
     $link=mysql_pconnect("localhost","root","usbw");
-    if ($link && mysql_select_db("biblioteca"))
+    if ($link && mysql_select_db("library"))
 
         return($link);
     return(FALSE);

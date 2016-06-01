@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
@@ -24,43 +23,28 @@
           </ul>
         </nav>
       </div>
+<?php
+$name=$_GET['name'];
+$phone=$_GET['phone'];
+$mail=$_GET['mail'];
+$cpf=$_GET['cpf'];
+$neighborhood=$_GET['neighborhood'];
+$street=$_GET['street'];
+$house=$_GET['house'];
+$extra=$_GET['extra'];
+if ($name==''||$phone==''||$mail==''||$cpf==''||$neighborhood==''||$street==''||$house=='')
+	print("Faltou preencher algum campo.");
+else
+{
+	require("../conecta.inc");
+	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	
+	mysql_query("insert into employee (name,phone,mail,cpf,neighborhood,street,house,extra) values ('$name','$phone','$mail','$cpf','$neighborhood','$street','$house','$extra')") 
+	or die ("Não é possível inserir cadastro de Funcionario!");
+	
+	print("Registro de funcionario Inserido com sucesso !");
+}
+?>
  
-<form action="../trafegoDados/processaCadastroLivro.php" method="get">
-  <fieldset>
-  <legend>Dados do Livro</legend>
-
-  <div class="form-group">
-    <label for="name">Nome</label>
-   <input type="text" class="form-control" id="name" name="name" autofocus>
-  </div>
-  
- <div class="form-group">
-    <label for="Writer">Autor</label>
-   <input type="text" class="form-control" id="Writer" name="Writer" >
-  </div>
-
-    <div class="form-group">
-    <label for="pages">Paginas</label>
-   <input type="text" class="form-control" id="pages" name="pages" >
-  </div>
-
-
-  <div class="form-group">
-    <label for="stash">Estoque</label>
-   <input type="text" class="form-control" id="stash" name="stash" 
-       >
-  </div>
-
- 
-</fieldset>
-  <button type="submit" class="btn btn-primary">
-  <span class="glyphicon glyphicon-floppy-saved"></span>
-  Confirmar Cadastro
-</button>
-</form>
-</div>
-  
-</div>
-  
 </body>
 </html>

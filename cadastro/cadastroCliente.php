@@ -3,62 +3,50 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Cadastro Cliente</title>
+  <title>Index</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
- <div class="container-fluid">
-  <div class="navbar-header">
-   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-    <span class="sr-only">Biblioteca navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-   </button>
-   <a class="navbar-brand" href="#">Biblioteca</a>
-  </div>
-  <div id="navbar" class="navbar-collapse collapse">
-   <ul class="nav navbar-nav navbar-right">
-     <li><a href="principal.php">Início</a></li>
-    <li><a href="#">Cadastros</a></li>
-    <li><a href="#">Emprestimos</a></li>
-   </ul>
-  </div>
- </div>
-</nav>
-<br>
-  <div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 class="panel-title">Cadastro Cliente</h2>
-  </div><!-- fim .panel-heading -->
-  
-  
-  <div class="container">
+<div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-muted">Portal biblioteca</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#">Principal</a></li>
+            <li><a href="cadastroLivro.php">Cadastro de Livro</a></li>
+            <li><a href="cadastroCliente.php">Cadastro de Clientes</a></li>
+            <li><a href="cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
+            <li><a href="#">Realizar Aluguel</a></li>           
+          </ul>
+        </nav>
+      </div>
 
  
-<form>
+<form action="../trafegoDados/processaCadastroCliente.php" method="get">
   <fieldset>
   <legend>Dados pessoais</legend>
 
   <div class="form-group">
-    <label for="nome">Nome completo</label>
-   <input type="text" class="form-control" id="telefone" name="telefone" autofocus placeholder="Fulano">
+    <label for="name">Nome completo</label>
+   <input type="text" class="form-control" id="name" name="name" autofocus placeholder="Fulano">
   </div>
   
   <div class="form-group">
-    <label for="telefone">Telefone</label>
-   <input type="text" class="form-control" id="nome" name="nome" placeholder="00.0000.0000" >
+    <label for="phone">Telefone</label>
+   <input type="text" class="form-control" id="phone" name="phone" placeholder="00.0000.0000" >
   </div>
 
   <div class="form-group">
-  <label for="email">Email</label>
+  <label for="mail">Email</label>
 
   <div class="input-group">
       <span class="input-group-addon">@</span>
-      <input type="email" class="form-control"
-             id="email" name="email">
+      <input type="mail" class="form-control"
+             id="mail" name="mail">
   </div>
 </div>
 
@@ -76,24 +64,24 @@
   <legend>Dados Gerais</legend>
 
   <div class="form-group">
-    <label for="bairro">Bairro :</label>
+    <label for="neighborhood">Bairro :</label>
     <input type="text" class="form-control" 
-           id="bairro" name="bairro" placeholder="Cristal">
+           id="neighborhood" name="neighborhood" placeholder="Cristal">
   </div>
   <div class="form-group">
-    <label for="rua">Rua :</label>
+    <label for="street">Rua :</label>
     <input type="text" class="form-control" 
-           id="rua" name="rua" placeholder="Rua São Geronimo">
+           id="street" name="street" placeholder="Rua São Geronimo">
   </div>
    <div class="form-group">
-    <label for="num">Casa/Apartamento :</label>
+    <label for="house">Casa/Apartamento :</label>
     <input type="text" class="form-control" 
-           id="num" name="num" placeholder="Apt 798 ">
+           id="house" name="house" placeholder="Apt 798 ">
   </div>
    <div class="form-group">
-    <label for="complemento">Complemento :</label>
+    <label for="extra">Complemento :</label>
     <input type="text" class="form-control" 
-           id="complemento" name="complemento" placeholder="Torre B">
+           id="extra" name="extra" placeholder="Torre B">
   </div>
 
   
