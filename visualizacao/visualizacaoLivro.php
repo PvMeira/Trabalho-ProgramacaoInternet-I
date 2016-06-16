@@ -31,26 +31,26 @@
 require("../conecta.inc");
 conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 $resultado=mysql_query("Select * from book order by id") or die ("Não é possível consultar clientes.");
-print("<center><h2>Mostrando os livros...</h2>");
-print("<table border='1' bordercolor='red'>");
-print("<tr><td><b>Código</td>");
-print("<td><b>Nome</td>");
-print("<tr><td><b>Escritor</td>");
-print("<td><b>Estoque</td>");
-print("<td><b>Deletar</td><td><b>Alterar</td></tr>");
-while ($linha=mysql_fetch_array($resultado))  
-{
-   $id=$linha["id"];
-   $name=$linha["name"];
-   $writer=$linha["writer"];
-   $stash=$linha["stash"];
-   print("<tr><td align='center'>$id</td>");
-   print("<td>$name</td>");
-   print("<td>$writer</td>");
-   print("<td>$stash</td>");
-   /* print("<td><a href='deletard.php?cod=$CodigoD&nom=$NomeD'>Deletar</a></td>");
-   print("<td><a href='alterard.php?cod=$CodigoD&nom=$NomeD'>Alterar</a></td></tr>"); */  }
-   print("</table></center>");
+		print("<center><h2>Mostrando os livros</h2>");
+		print("<table class='display table' width='90%'>");
+		print("<tr><td><b>Código</td>");
+		print("<td><b>Nome</td>");
+		print("<td><b>Escritor</td>");
+		print("<td><b>Estoque</td>");
+		print("<td><b>Deletar</td><td><b>Alterar</td></tr>");
+			while ($linha=mysql_fetch_array($resultado)) {
+															
+			$id=$linha["id"];
+			$name=$linha["name"];
+			$writer=$linha["writer"];
+			$stash=$linha["stash"];
+			print("<tr><td align='center'>$id</td>");
+			print("<td>$name</td>");
+			print("<td>$writer</td>");
+			print("<td>$stash</td>");
+			print("<td><a href='../trafegoDados/deletaLivro.php?cod=$id'>Deletar</a></td>");
+			print("<td><a href='../trafegoDados/alteraLivro.php?cod=$id'>Alterar</a></td></tr>");   }
+			print("</table></center>");
 ?>
 	  </div>
       

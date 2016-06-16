@@ -27,17 +27,17 @@
 
       <div>
 	  <?php
-require("../conecta.inc");
-conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-$resultado=mysql_query("Select * from client order by id") or die ("Não é possível consultar clientes.");
-print("<center><h2>Mostrando os Funcionarios...</h2>");
-print("<table border='1' bordercolor='red'>");
-print("<tr><td><b>Código</td>");
-print("<td><b>Nome</td>");
-print("<tr><td><b>cpf</td>");
-print("<td><b>mail</td>");
-print("<td><b>Deletar</td><td><b>Alterar</td></tr>");
-while ($linha=mysql_fetch_array($resultado))  
+		require("../conecta.inc");
+		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+		$resultado=mysql_query("Select * from employee order by id") or die ("Não é possível consultar funcionarios.");
+		print("<center><h2>Mostrando os Funcionarios</h2>");
+		print("<table class='display table' width='90%'>");
+		print("<tr><td><b>Código</td>");
+		print("<td><b>Nome</td>");
+		print("<td><b>cpf</td>");
+		print("<td><b>mail</td>");
+		print("<td><b>Deletar</td><td><b>Alterar</td></tr>");
+			while ($linha=mysql_fetch_array($resultado))  
 {
    $id=$linha["id"];
    $name=$linha["name"];
@@ -47,8 +47,8 @@ while ($linha=mysql_fetch_array($resultado))
    print("<td>$name</td>");
    print("<td>$cpf</td>");
    print("<td>$mail</td>");
-   /* print("<td><a href='deletard.php?cod=$CodigoD&nom=$NomeD'>Deletar</a></td>");
-   print("<td><a href='alterard.php?cod=$CodigoD&nom=$NomeD'>Alterar</a></td></tr>"); */  }
+    print("<td><a href='../trafegoDados/deletaFuncionario.php?cod=$id '>Deletar</a></td>");
+	print("<td><a href='../trafegoDados/alteraFuncionario.php?cod=$id '>Alterar</a></td></tr>");   }
    print("</table></center>");
 ?>
 	  </div>
