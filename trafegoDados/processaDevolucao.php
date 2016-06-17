@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Aluguel</title>
+  <title>Devolução</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -24,36 +24,18 @@
         </nav>
       </div>
 <?php
-$client=$_GET['client'];
-$employee=$_GET['employee'];
-$book=$_GET['book'];
-$status='Alugado';
-$date =$_GET['date'];
+$cod=$_GET['cod'];
+$cod_book=$_GET['cod_book'];
 
-if ($client=='' or $employee=='' or $book=='' or $date=='')
-	print("Faltou preencher algum campo!");
-else
-{
 	require("../conecta.inc");
 	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-	print("Realizando o aluguel:<p>");
-		$resultado=mysql_query("Select * from book where id='$book'") 
-		or die ("Não é possível realizar a consulta do estoque do livro!");
-			while ($linha=mysql_fetch_array($resultado))  
-			{
-			$stash=$linha["stash"];
-			}
-				if($stash<1){
-				print("Desculpe mas este livro nao pode ser alugado :Estoque esgotado");
-				}
-					else{
-						mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
-						or die ("Não é possível realizar aluguel!");
-							mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
-							or die ("Não é possível alterar o estoque !");
-							print("Aluguel realizado com sucesso:");
-	}
-}
+	print("Realizando o Devolução:<p>");
+		mysql_query("UPDATE rent SET avaliable='Devolvido' where id='$cod'") 
+		or die ("Não é possível realizar a devolução!");
+			mysql_query("UPDATE book SET stash=stash+1 where id='$cod_book'") 
+			or die ("Não é possível alterar o estoque !");
+			print("devolução realizado com sucesso:");
+	
 ?>
  
 </body>

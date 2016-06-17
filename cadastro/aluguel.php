@@ -20,7 +20,8 @@
             <li><a href="cadastroLivro.php">Cadastro de Livro</a></li>
             <li><a href="cadastroCliente.php">Cadastro de Clientes</a></li>
             <li><a href="cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
-            <li><a href="#">Realizar Aluguel</a></li>           
+            <li><a href="#">Realizar Aluguel</a></li>      
+			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>				
           </ul>
         </nav>
       </div>

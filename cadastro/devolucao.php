@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Index</title>
+  <title>Realizar devolução</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -20,39 +20,32 @@
             <li><a href="../cadastro/cadastroLivro.php">Cadastro de Livro</a></li>
             <li><a href="../cadastro/cadastroCliente.php">Cadastro de Clientes</a></li>
             <li><a href="../cadastro/cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
-            <li><a href="#">Realizar Aluguel</a></li>   
+            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>   
 			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>				
           </ul>
         </nav>
       </div>
 <?php
-/**
- * Created by PhpStorm.
- * User: Pedro
- * Date: 17/05/2016
- * Time: 23:15
- */
-$name=$_GET['name'];
-$phone=$_GET['phone'];
-$mail=$_GET['mail'];
-$cpf=$_GET['cpf'];
-$neighborhood=$_GET['neighborhood'];
-$street=$_GET['street'];
-$house=$_GET['house'];
-$extra=$_GET['extra'];
-if ($name==''||$phone==''||$mail==''||$cpf==''||$neighborhood==''||$street==''||$house=='')
-	print("Faltou preencher algum campo.");
-else
+require("../conecta.inc");
+		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+		$resultado=mysql_query("Select * from rent where avaliable='alugado' order by id") or die ("Não é possível consultar Alugueis.");
+		print("<center><h2>Mostrando os alugueis</h2>");
+		print("<table class='display table' width='90%'>");
+		print("<tr><td><b>Código</td>");
+		print("<td><b>livro</td>");
+		print("<td><b>cliente</td>");
+		print("<td><b>Devolver</td>");
+			while ($linha=mysql_fetch_array($resultado))  
 {
-	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-	
-	mysql_query("insert into client (name,phone,mail,cpf,neighborhood,street,house,extra) values ('$name','$phone','$mail','$cpf','$neighborhood','$street','$house','$extra')") 
-	or die ("Não é possível inserir cadastro de cliente!");
-	
-	print("Cadastro de Cliente Inserido com sucesso !");
-}
-?>
- 
+   $id=$linha["id"];
+   $book=$linha["id_book"];
+   $client=$linha["id_client"];
+   
+   print("<tr><td align='center'>$id</td>");
+   print("<td>$book</td>");
+   print("<td>$client</td>");
+   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book '>Devolver</a></td>");   }
+   print("</table></center>");
+?>	   
 </body>
 </html>
