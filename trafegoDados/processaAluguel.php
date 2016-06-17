@@ -36,11 +36,22 @@ else
 	require("../conecta.inc");
 	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 	print("Realizando o aluguel:<p>");
-	mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
-	or die ("Não é possível realizar aluguel!");
-		mysql_query("update  book set stash='-1' where id='$book'") 
-		or die ("Não é possível alterar o estoque !");
-	print("Aluguel realizado com sucesso:");
+		$resultado=mysql_query("Select * from book where id='$book'") 
+		or die ("Não é possível realizar a consulta do estoque do livro!");
+			while ($linha=mysql_fetch_array($resultado))  
+			{
+			$stash=$linha["stash"];
+			}
+				if($stash<1){
+				print("Desculpe mas este livro nao pode ser alugado :Estoque esgotado");
+				}
+					else{
+						mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
+						or die ("Não é possível realizar aluguel!");
+							mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
+							or die ("Não é possível alterar o estoque !");
+							print("Aluguel realizado com sucesso:");
+	}
 }
 ?>
  
