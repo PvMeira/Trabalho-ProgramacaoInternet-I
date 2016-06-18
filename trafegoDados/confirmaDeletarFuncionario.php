@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Index</title>
+  <title>Confirmar</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -14,13 +14,14 @@
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
         <h3 class="text-muted">Portal biblioteca</h3>
-        <nav>
+        <nav class="navbar navbar-default">	
           <ul class="nav nav-justified">
-            <li class="active"><a href="#">Principal</a></li>
-            <li><a href="cadastroLivro.php">Cadastro de Livro</a></li>
-            <li><a href="cadastroCliente.php">Cadastro de Clientes</a></li>
-            <li><a href="cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
-            <li><a href="#">Realizar Aluguel</a></li>           
+			<li class="active"><a href="../index.php">Principal</a></li>
+            <li><a href="../visualizacao/visualizacaoLivro.php">Visualização de Livro</a></li>
+            <li><a href="../visualizacao/visualizacaoCliente.php">Visualização de Clientes</a></li>
+            <li><a href="../visualizacao/visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
+            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>
+			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>
       </div>
@@ -36,10 +37,6 @@
 <p><a href="../visualizacao/visualizacaoFuncioanrio.php">Voltar para Visualização de funcionario</a>
  </div>
       
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.Todos os direitos reservados ao time de desenvolvimento</p>
-      </footer>
 
     </div> <!-- /container -->
 </body>

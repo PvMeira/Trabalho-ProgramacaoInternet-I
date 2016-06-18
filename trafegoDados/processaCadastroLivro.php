@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Index</title>
+  <title>Processamento de dados</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -14,16 +14,19 @@
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
         <h3 class="text-muted">Portal biblioteca</h3>
-        <nav>
+        <nav class="navbar navbar-default">	
           <ul class="nav nav-justified">
-            <li class="active"><a href="../cadastro/principal.php">Principal</a></li>
-              <li><a href="../cadastro/cadastroLivro.php">Cadastro de Livro</a></li>
-            <li><a href="../cadastro/cadastroCliente.php">Cadastro de Clientes</a></li>
-            <li><a href="../cadastro/cadastroFuncionario.php">Cadastro de Funcionarios</a></li>
-            <li><a href="#">Realizar Aluguel</a></li>           
+			<li class="active"><a href="../index.php">Principal</a></li>
+            <li><a href="../visualizacao/visualizacaoLivro.php">Visualização de Livro</a></li>
+            <li><a href="../visualizacao/visualizacaoCliente.php">Visualização de Clientes</a></li>
+            <li><a href="../visualizacao/visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
+            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>
+			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>
       </div>
+
+      <div>
 <?php
 /**
  * Created by PhpStorm.
@@ -35,8 +38,18 @@ $name=$_GET['name'];
 $writer=$_GET['Writer'];
 $pages=$_GET['pages'];
 $stash=$_GET['stash'];
-if ($name==''||$writer==''||$pages==''||$stash=='')
+if ($name==''||$writer==''||$pages==''||$stash==''){
+	print("<br>");
+print("<br>");
+print("<br>");
+print("<br>");
+print("<br>");
+print("<br>");
 	print("Faltou preencher algum campo.");
+print("<br>");
+print("<br>");
+print("<br>");
+}
 else
 {
 	require("../conecta.inc");
@@ -48,6 +61,6 @@ else
 	print("Livro Inserido com sucesso !");
 }
 ?>
- 
+ <p><a href="../cadastro/cadastroLivro.php">Cancelar e voltar</a>
 </body>
 </html>
