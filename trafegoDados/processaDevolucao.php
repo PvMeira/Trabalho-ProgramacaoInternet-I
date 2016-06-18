@@ -44,6 +44,6 @@ $cod_client=$_GET['cod_client'];
 			print("devolução realizado com sucesso:");
 	
 ?>
- 
+ <p><a href="../cadastro/devolucao.php">Voltar</a>
 </body>
 </html>

@@ -54,6 +54,6 @@
 	print("Registro de funcionario Inserido com sucesso !");
 }
 ?>
- <p><a href="../cadastro/cadastroFuncionario.php">Cancelar e voltar</a>
+ <p><a href="../cadastro/cadastroFuncionario.php">Voltar</a>
 </body>
 </html>

@@ -61,6 +61,6 @@ else
 	print("Livro Inserido com sucesso !");
 }
 ?>
- <p><a href="../cadastro/cadastroLivro.php">Cancelar e voltar</a>
+ <p><a href="../cadastro/cadastroLivro.php">Voltar</a>
 </body>
 </html>

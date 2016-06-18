@@ -62,6 +62,6 @@ else
 	print("Cadastro de Cliente Inserido com sucesso !");
 }
 ?>
- <p><a href="../cadastro/cadastroCliente.php">Cancelar e voltar</a>
+ <p><a href="../cadastro/cadastroCliente.php">Voltar</a>
 </body>
 </html>
