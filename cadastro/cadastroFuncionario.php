@@ -59,33 +59,6 @@
 
  
 </fieldset>
-
-  <fieldset>
-  <legend>Dados Gerais</legend>
-
-  <div class="form-group">
-    <label for="neighborhood">Bairro :</label>
-    <input type="text" class="form-control" 
-           id="neighborhood" name="neighborhood" placeholder="Cristal">
-  </div>
-  <div class="form-group">
-    <label for="street">Rua :</label>
-    <input type="text" class="form-control" 
-           id="street" name="street" placeholder="Rua São Geronimo">
-  </div>
-   <div class="form-group">
-    <label for="house">Casa/Apartamento :</label>
-    <input type="text" class="form-control" 
-           id="house" name="house" placeholder="Apt 798 ">
-  </div>
-   <div class="form-group">
-    <label for="extra">Complemento :</label>
-    <input type="text" class="form-control" 
-           id="extra" name="extra" placeholder="Torre B">
-  </div>
-
-  
-</fieldset>
   <button type="submit" class="btn btn-primary">
   <span class="glyphicon glyphicon-floppy-saved"></span>
   Confirmar Cadastro

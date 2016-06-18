@@ -47,12 +47,26 @@ else
 				print("Desculpe mas este livro nao pode ser alugado :Estoque esgotado");
 				}
 					else{
-						mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
-						or die ("Não é possível realizar aluguel!");
-							mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
-							or die ("Não é possível alterar o estoque !");
-							print("Aluguel realizado com sucesso:");
-	}
+						$resultadoClient=mysql_query("Select * from client where id='$client'") 
+						or die ("Não é possível realizar a consulta da quantidade de livros alugados pelo cliente!");
+							while ($linha1=mysql_fetch_array($resultadoClient))  
+							{
+							$rentCount=$linha1["rentCount"];
+							}
+								if($rentCount > 3){
+									print("Desculpe mas este cliente ja chegou ao maximo de alugueis possiveis");
+								}	
+								else{
+						
+									mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
+									or die ("Não é possível realizar aluguel!");
+										mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
+										or die ("Não é possível alterar o estoque !");
+											mysql_query("UPDATE client SET rentCount=rentCount+1 where id='$client'") 
+											or die ("Não é possível alterar o numero de alugueis do cliente !");
+											print("Aluguel realizado com sucesso:");
+									}
+	}		
 }
 ?>
  

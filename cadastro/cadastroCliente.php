@@ -40,15 +40,14 @@
    <input type="text" class="form-control" id="phone" name="phone" placeholder="00.0000.0000" >
   </div>
 
-  <div class="form-group">
+	<div class="form-group">
   <label for="mail">Email</label>
 
-  <div class="input-group">
-      <span class="input-group-addon">@</span>
-      <input type="mail" class="form-control"
-             id="mail" name="mail">
-  </div>
-</div>
+			<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="mail" class="form-control" id="mail" name="mail">
+			</div>
+    </div>
 
 
   <div class="form-group">
@@ -56,37 +55,14 @@
    <input type="text" class="form-control" id="cpf" name="cpf" 
        placeholder="000.000.000-00">
   </div>
+  
+  <div class="form-group">
+    <label for="address">Endereço</label>
+   <input type="text" class="form-control" id="address" name="address" placeholder="Rua Fulano de Tal Nª222" >
+  </div>
 
  
 </fieldset>
-
-  <fieldset>
-  <legend>Dados Gerais</legend>
-
-  <div class="form-group">
-    <label for="neighborhood">Bairro :</label>
-    <input type="text" class="form-control" 
-           id="neighborhood" name="neighborhood" placeholder="Cristal">
-  </div>
-  <div class="form-group">
-    <label for="street">Rua :</label>
-    <input type="text" class="form-control" 
-           id="street" name="street" placeholder="Rua São Geronimo">
-  </div>
-   <div class="form-group">
-    <label for="house">Casa/Apartamento :</label>
-    <input type="text" class="form-control" 
-           id="house" name="house" placeholder="Apt 798 ">
-  </div>
-   <div class="form-group">
-    <label for="extra">Complemento :</label>
-    <input type="text" class="form-control" 
-           id="extra" name="extra" placeholder="Torre B">
-  </div>
-
-  
-</fieldset>
-
   <button type="submit" class="btn btn-primary">
   <span class="glyphicon glyphicon-floppy-saved"></span>
   Confirmar Cadastro

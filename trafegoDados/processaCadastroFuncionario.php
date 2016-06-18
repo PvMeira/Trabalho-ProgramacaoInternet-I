@@ -29,17 +29,14 @@
 		$phone=$_GET['phone'];
 		$mail=$_GET['mail'];
 		$cpf=$_GET['cpf'];
-		$neighborhood=$_GET['neighborhood'];
-		$street=$_GET['street'];
-		$house=$_GET['house'];
-		$extra=$_GET['extra'];
-		if ($name==''||$phone==''||$mail==''||$cpf==''||$neighborhood==''||$street==''||$house=='')
+		$address=$_GET['address'];
+		if ($name==''||$phone==''||$mail==''||$cpf==''||$address=='')
 			print("Faltou preencher algum campo.");
 			else
 				{
 			require("../conecta.inc");
 			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-			mysql_query("insert into employee (name,phone,mail,cpf,neighborhood,street,house,extra) values ('$name','$phone','$mail','$cpf','$neighborhood','$street','$house','$extra')") 
+			mysql_query("insert into employee (name,phone,mail,cpf,address) values ('$name','$phone','$mail','$cpf','$address')") 
 	or die ("Não é possível inserir cadastro de Funcionario!");
 	print("Registro de funcionario Inserido com sucesso !");
 }

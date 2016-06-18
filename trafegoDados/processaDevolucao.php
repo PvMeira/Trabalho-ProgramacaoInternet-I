@@ -26,14 +26,17 @@
 <?php
 $cod=$_GET['cod'];
 $cod_book=$_GET['cod_book'];
+$cod_client=$_GET['cod_client'];
 
 	require("../conecta.inc");
 	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 	print("Realizando o Devolução:<p>");
 		mysql_query("UPDATE rent SET avaliable='Devolvido' where id='$cod'") 
-		or die ("Não é possível realizar a devolução!");
+			or die ("Não é possível realizar a devolução!");
 			mysql_query("UPDATE book SET stash=stash+1 where id='$cod_book'") 
-			or die ("Não é possível alterar o estoque !");
+				or die ("Não é possível alterar o estoque !");
+					mysql_query("UPDATE client SET rentCount=rentCount-1 where id='$cod_client'") 
+						or die ("Não é possível alterar o numero de alugueis do cliente !");
 			print("devolução realizado com sucesso:");
 	
 ?>

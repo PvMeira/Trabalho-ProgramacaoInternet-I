@@ -19,12 +19,15 @@
 	$phone=$linha["phone"];
 	$mail=$linha["mail"];
 	$cpf = $linha["cpf"];
+	$address = $linha["address"];
+	
 	print("<h3>Deletando o Cliente:</h3><p>");
 	print("Código: $id<br>");
    	print("Nome: <b>$name</b><br>");
    	print("Telefone: $phone<br>");
    	print("E-Mail: $mail<br>");
-   	print("CPF: $cpf");
+   	print("CPF: $cpf<br>");
+	print("Endereço: $address<br>");
 ?>
 <form action="confirmaDeletarCliente.php" method="get">
 <input type="hidden" name="cod" value="<?php print($id)?>">

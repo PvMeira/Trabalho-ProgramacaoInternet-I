@@ -44,7 +44,7 @@ require("../conecta.inc");
    print("<tr><td align='center'>$id</td>");
    print("<td>$book</td>");
    print("<td>$client</td>");
-   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book '>Devolver</a></td>");   }
+   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '>Devolver</a></td>");   }
    print("</table></center>");
 ?>	   
 </body>

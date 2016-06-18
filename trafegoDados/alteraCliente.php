@@ -17,6 +17,7 @@
 	$name=$linha["name"];
 	$cpf=$linha ["cpf"];
 	$mail=$linha ["mail"];
+	$address=$linha ["address"];
 	print("<h3>Alterando os dados do Cliente:</h3><p>");
 ?>
 <form action="confirmaAlteraracaoCliente.php" method="get">
@@ -27,6 +28,8 @@ Código: <?php print($id)?>
 <br>Nome: <input type="text" name="cpf_alter" value="<?php print($cpf)?>">
 
 <br>Nome: <input type="text" name="mail_alter" value="<?php print($mail)?>">
+
+<br>Nome: <input type="text" name="address_alter" value="<?php print($address)?>">
 
 <p><input type="submit" value="Alterar Dados">
 </form>
