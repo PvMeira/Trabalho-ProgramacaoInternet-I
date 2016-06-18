@@ -83,6 +83,6 @@ else
 	}		
 }
 ?>
- <p><a href="../cadastro/aluguel.php">Cancelar e voltar</a>
+ <p><a href="../cadastro/aluguel.php">Voltar</a>
 </body>
 </html>

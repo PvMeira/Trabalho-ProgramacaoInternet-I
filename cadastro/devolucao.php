@@ -31,6 +31,7 @@
 require("../conecta.inc");
 		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 		$resultado=mysql_query("Select * from rent where avaliable='alugado' order by id") or die ("Não é possível consultar Alugueis.");
+		
 		print("<center><h2>Mostrando os alugueis</h2>");
 		print("<table class='display table' width='90%'>");
 		print("<tr><td><b>Código</td>");
@@ -39,13 +40,21 @@ require("../conecta.inc");
 		print("<td><b>Devolver</td>");
 			while ($linha=mysql_fetch_array($resultado))  
 {
+  
    $id=$linha["id"];
    $book=$linha["id_book"];
+		$resultado2=mysql_query("Select * from book where id='$book'") or die ("Não é possível consultar nome do cliente.");
+		while($linha2=mysql_fetch_array($resultado2))
+		$bookName=$linha2["name"];
+	
    $client=$linha["id_client"];
+		$resultado1=mysql_query("Select * from client where id='$client'") or die ("Não é possível consultar nome do cliente.");
+		while($linha1=mysql_fetch_array($resultado1))
+		$clientName=$linha1["name"];
    
-   print("<tr><td align='center'>$id</td>");
-   print("<td>$book</td>");
-   print("<td>$client</td>");
+   print("<tr><td>$id</td>");
+   print("<td>$bookName</td>");
+   print("<td>$clientName</td>");
    print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '>Devolver</a></td>");   }
    print("</table></center>");
 ?>	   
