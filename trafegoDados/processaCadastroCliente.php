@@ -40,27 +40,20 @@ $cpf=$_GET['cpf'];
 $address=$_GET['address'];
 if ($name==''||$phone==''||$mail==''||$cpf==''||$address==''){
 print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-	print("Faltou preencher algum campo.");
-print("<br>");
-print("<br>");
-print("<br>");
+print("<div class='alert alert-warning' role='alert'>Faltou preencher algum campo.</div>");
 	}
 else
 {
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 	
 	mysql_query("insert into client (name,phone,mail,cpf,address,rentCount) values ('$name','$phone','$mail','$cpf','$address','0')") 
-	or die ("Não é possível inserir cadastro de cliente!");
+	or die ("<div class='alert alert-danger' role='alert'>Não é possível inserir cadastro de cliente!</div>");
 	
-	print("Cadastro de Cliente Inserido com sucesso !");
+	print("<div class='alert alert-success' role='alert'>Cliente Cadastrado com Sucesso</div>");
 }
 ?>
- <p><a href="../cadastro/cadastroCliente.php">Voltar</a>
+ <p><a href="../cadastro/cadastroCliente.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 </body>
 </html>

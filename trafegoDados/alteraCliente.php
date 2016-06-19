@@ -29,8 +29,8 @@
 <?php
 	$cod=$_GET['cod'];
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-	$resultado1=mysql_query("Select * from client where id = '$cod'") or die ("Não é possível retornar dados do Cliente!");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
+	$resultado1=mysql_query("Select * from client where id = '$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível retornar dados do Cliente!</div>");
 		$linha=mysql_fetch_array($resultado1);
 			$id=$linha["id"];
 			$name=$linha["name"];
@@ -52,15 +52,15 @@
 			<td><input type="text" name="mail_alter" value="<?php print($mail)?>"></td>
 			<td><input type="text" name="address_alter" value="<?php print($address)?>"></td>
 			</table></center>
-<p><input type="submit" value="Alterar Dados">
+<p><button type="submit" class="btn btn-primary">
+  <span class="glyphicon glyphicon-pencil"></span>
+  Realizar Alteração
+</button>
 </form>
-<p><a href="mostrad.php">Cancelar e voltar</a>
+<p><a href="mostrad.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
   </div>
-      
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.Todos os direitos reservados ao time de desenvolvimento</p>
-      </footer>
+
 
     </div> <!-- /container -->
 </body>

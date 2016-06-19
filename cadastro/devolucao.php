@@ -54,7 +54,8 @@ require("../conecta.inc");
    print("<tr><td>$id</td>");
    print("<td>$bookName</td>");
    print("<td>$clientName</td>");
-   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '>Devolver</a></td>");   }
+   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '><button type='button'  class='btn'>Devolver
+										<span class='glyphicon glyphicon-inbox' aria-hidden='true'></span> </button></a>");     }
    print("</table></center>");
 ?>	   
 </body>

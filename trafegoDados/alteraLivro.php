@@ -29,8 +29,8 @@
 <?php
 	$cod=$_GET['cod'];
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-	$resultado1=mysql_query("Select * from book where id = '$cod'") or die ("Não é possível retornar dados do Livro!");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
+	$resultado1=mysql_query("Select * from book where id = '$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível retornar dados do Livro!</div>");
 	$linha=mysql_fetch_array($resultado1);
 	$id=$linha["id"];
 	$name=$linha["name"];
@@ -52,16 +52,17 @@
 			<td><input type="text" name="name_alter" value="<?php print($name)?>"></td>
 	</table></center>
 
-			<p><input type="submit" value="Alterar Dados">
+			<button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-pencil"></span>
+				Realizar Alteração
+			</button>
 </form>
-<p><a href="../visualizacao/visualizacaoLivro.php">Cancelar e voltar</a>
+
+		<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 
 </div>
       
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.Todos os direitos reservados ao time de desenvolvimento</p>
-      </footer>
 
     </div> <!-- /container -->
 </body>

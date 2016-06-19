@@ -32,17 +32,18 @@ $cod_book=$_GET['cod_book'];
 $cod_client=$_GET['cod_client'];
 
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 	print("Realizando o Devolução:<p>");
 		mysql_query("UPDATE rent SET avaliable='Devolvido' where id='$cod'") 
-			or die ("Não é possível realizar a devolução!");
+			or die ("<div class='alert alert-danger' role='alert'>Não é possível realizar a devolução!</div>");
 			mysql_query("UPDATE book SET stash=stash+1 where id='$cod_book'") 
-				or die ("Não é possível alterar o estoque !");
+				or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar o estoque !</div>");
 					mysql_query("UPDATE client SET rentCount=rentCount-1 where id='$cod_client'") 
-						or die ("Não é possível alterar o numero de alugueis do cliente !");
-			print("devolução realizado com sucesso:");
+						or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar o numero de alugueis do cliente !</div>");
+			print("<div class='alert alert-success' role='alert'>Livro Devolvido com sucesso</div>");
 	
 ?>
- <p><a href="../cadastro/devolucao.php">Voltar</a>
+ <p><a href="../cadastro/devolucao.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 </body>
 </html>

@@ -39,27 +39,20 @@ $pages=$_GET['pages'];
 $stash=$_GET['stash'];
 if ($name==''||$writer==''||$pages==''||$stash==''){
 	print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-	print("Faltou preencher algum campo.");
-print("<br>");
-print("<br>");
-print("<br>");
+	print("<div class='alert alert-warning' role='alert'>Faltou preencher algum campo.</div>");
 }
 else
 {
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 	
 	mysql_query("insert into book (name,writer,pages,stash) values ('$name','$writer','$pages','$stash')") 
-	or die ("Não é possível inserir Livro!");
+	or die ("<div class='alert alert-danger' role='alert'>Não foi possivel cadastrar o novo livro</div>");
 	
-	print("Livro Inserido com sucesso !");
+	print("<div class='alert alert-success' role='alert'>Livro Cadastrado com Sucesso</div>");
 }
 ?>
- <p><a href="../cadastro/cadastroLivro.php">Voltar</a>
+ <p><a href="../cadastro/cadastroLivro.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 </body>
 </html>

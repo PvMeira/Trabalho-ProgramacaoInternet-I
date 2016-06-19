@@ -29,11 +29,12 @@
 <?php
 	$cod=$_GET['cod'];
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-		mysql_query("delete from book where id='$cod'") or die ("Não é possível deletar livro!");
-		print("livro deletado com sucesso (código)      : $cod");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
+		mysql_query("delete from book where id='$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível deletar livro!</div>");
+		print("<div class='alert alert-success' role='alert'>livro deletado com sucesso (código)  : $cod </div>");
 ?>
-<p><a href="../visualizacao/visualizacaoLivro.php">Voltar para Visualização de Livros</a>
+<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
 
     </div> <!-- /container -->

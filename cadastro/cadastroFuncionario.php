@@ -59,7 +59,11 @@
        placeholder="000.000.000-00">
   </div>
 
- 
+  <div class="form-group">
+    <label for="address">Endereço</label>
+   <input type="text" class="form-control" id="address" name="address"  placeholder="Rua Exemplo">
+  </div>
+  
 </fieldset>
   <button type="submit" class="btn btn-primary">
   <span class="glyphicon glyphicon-floppy-saved"></span>

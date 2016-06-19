@@ -29,11 +29,12 @@
 <?php
 	$cod=$_GET['cod'];
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-		mysql_query("delete from employee where id='$cod'") or die ("Não é possível deletar Funcionario!");
-		print("Funcionario deletado com sucesso (código): $cod");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
+		mysql_query("delete from employee where id='$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível deletar Funcionario!</div>");
+		print("<div class='alert alert-success' role='alert'>Funcionario deletado com sucesso (código): $cod</div>");
 ?>
-<p><a href="../visualizacao/visualizacaoFuncioanrio.php">Voltar para Visualização de funcionario</a>
+<p><a href="../visualizacao/visualizacaoFuncioanrio.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
       
 

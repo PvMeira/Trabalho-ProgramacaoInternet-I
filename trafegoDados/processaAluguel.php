@@ -35,53 +35,46 @@ $date =$_GET['date'];
 
 if ($client=='' or $employee=='' or $book=='' or $date==''){
 print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-print("<br>");
-	print("Faltou preencher algum campo.");
-print("<br>");
-print("<br>");
-print("<br>");
+print("<div class='alert alert-warning' role='alert'>Faltou preencher algum campo.</div>");
 }
 else
 {
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 	print("Realizando o aluguel:<p>");
 		$resultado=mysql_query("Select * from book where id='$book'") 
-		or die ("Não é possível realizar a consulta do estoque do livro!");
+		or die ("<div class='alert alert-danger' role='alert'> Não é possível realizar a consulta do estoque do livro!</div>");
 			while ($linha=mysql_fetch_array($resultado))  
 			{
 			$stash=$linha["stash"];
 			}
 				if($stash<1){
-				print("Desculpe mas este livro nao pode ser alugado :Estoque esgotado");
+				print("<div class='alert alert-danger' role='alert'> Desculpe mas este livro nao pode ser alugado :Estoque esgotado </div>");
 				}
 					else{
 						$resultadoClient=mysql_query("Select * from client where id='$client'") 
-						or die ("Não é possível realizar a consulta da quantidade de livros alugados pelo cliente!");
+						or die ("<div class='alert alert-danger' role='alert'>Não é possível realizar a consulta da quantidade de livros alugados pelo cliente! </div>");
 							while ($linha1=mysql_fetch_array($resultadoClient))  
 							{
 							$rentCount=$linha1["rentCount"];
 							}
 								if($rentCount > 3){
-									print("Desculpe mas este cliente ja chegou ao maximo de alugueis possiveis");
+									print("<div class='alert alert-danger' role='alert'>Desculpe mas este cliente ja chegou ao maximo de alugueis possiveis </div>");
 								}	
 								else{
 						
 									mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
-									or die ("Não é possível realizar aluguel!");
+									or die ("<div class='alert alert-danger' role='alert'>Não é possível realizar aluguel!</div>");
 										mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
-										or die ("Não é possível alterar o estoque !");
+										or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar o estoque !</div>");
 											mysql_query("UPDATE client SET rentCount=rentCount+1 where id='$client'") 
-											or die ("Não é possível alterar o numero de alugueis do cliente !");
-											print("Aluguel realizado com sucesso:");
+											or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar o numero de alugueis do cliente !</div>");
+											print("<div class='alert alert-success' role='alert'>Aluguel Realizado com Sucesso</div>");
 									}
 	}		
 }
 ?>
- <p><a href="../visualizacao/visualizacaoLivro.php">Voltar</a>
+ <p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 </body>
 </html>

@@ -30,8 +30,8 @@
 <?php
 	$code=$_GET['cod'];
 	require("../conecta.inc");
-	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-	$result=mysql_query("Select * from book where id='$code'") or die ("Não é possível retornar dados do livro!");
+	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
+	$result=mysql_query("Select * from book where id='$code'") or die ("<div class='alert alert-danger' role='alert'>Não é possível retornar dados do livro!</div>");
 		print("<h3>Deletando o livro:</h3><p>");
 		print("<table class='display table' width='90%'>");
 		print("<tr><td><b>Código</td>");
@@ -53,9 +53,13 @@
 ?>
 <form action="confirmaDeletarLivro.php" method="get">
 <input type="hidden" name="cod" value="<?php print($id)?>">
-<br><input type="submit" value="Deletar Dados">
+<br><button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-trash"></span>
+				Deletar
+			</button>
 </form>
-<p><a href="../visualizacao/visualizacaoLivro.php">Cancelar e voltar</a>
+<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 	  </div>
 
     </div> <!-- /container -->

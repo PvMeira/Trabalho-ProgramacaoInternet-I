@@ -34,25 +34,18 @@
 		$address=$_GET['address'];
 		if ($name==''||$phone==''||$mail==''||$cpf==''||$address==''){
 			print("<br>");
-			print("<br>");
-			print("<br>");
-			print("<br>");
-			print("<br>");
-			print("<br>");
-	print("Faltou preencher algum campo.");
-			print("<br>");
-			print("<br>");
-			print("<br>");	
-			else
+			print("<div class='alert alert-warning' role='alert'>Faltou preencher algum campo</div>");
+			
 		}
-				{
+			else	{
 			require("../conecta.inc");
-			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+			conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 			mysql_query("insert into employee (name,phone,mail,cpf,address) values ('$name','$phone','$mail','$cpf','$address')") 
-	or die ("Não é possível inserir cadastro de Funcionario!");
-	print("Registro de funcionario Inserido com sucesso !");
+	or die ("<div class='alert alert-danger' role='alert'>Não é possível inserir cadastro de Funcionario!</div>");
+	print("<div class='alert alert-success' role='alert'>Funcionario Cadastrado com Sucesso</div>");
 }
 ?>
- <p><a href="../cadastro/cadastroFuncionario.php">Voltar</a>
+ <p><a href="../cadastro/cadastroFuncionario.php"><button type='button'  class='btn'>Voltar
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
 </body>
 </html>
