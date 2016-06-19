@@ -64,7 +64,29 @@
    <input type="text" class="form-control" id="address" name="address"  placeholder="Rua Exemplo">
   </div>
   
+  	<div class="form-group">
+	 Tipo Cargo:  <select name="position">
+	<?php
+			require("../conecta.inc");
+			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+			$resultado=mysql_query("Select * from position order by id") or die ("Não é possível consultar Cargos .");
+				while ($linha=mysql_fetch_array($resultado))
+				{
+					
+					$id=$linha["id"];
+						$resultado2=mysql_query("Select * from position where id='$id'") or die ("Não é possível consultar nome do cargo.");
+						while($linha2=mysql_fetch_array($resultado2)){
+						$positionName=$linha2["name"];
+						}
+					$name=$linha["name"];
+					print("<option value='$id'>$positionName</option>");
+				}
+	
+	?>
+		</select>
+	</div>
 </fieldset>
+
   <button type="submit" class="btn btn-primary">
   <span class="glyphicon glyphicon-floppy-saved"></span>
   Confirmar Cadastro

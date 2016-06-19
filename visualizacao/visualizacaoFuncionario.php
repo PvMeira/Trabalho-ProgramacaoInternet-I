@@ -40,10 +40,16 @@
 		print("<td><b>Nome</td>");
 		print("<td><b>cpf</td>");
 		print("<td><b>mail</td>");
+		print("<td><b>Cargo</td>");
 		print("<td><b>Deletar</td><td><b>Alterar</td></tr>");
-			while ($linha=mysql_fetch_array($resultado))  
-{
+			while ($linha=mysql_fetch_array($resultado))  {
+
    $id=$linha["id"];
+   $id_cargo=$linha["id_position"];
+	$resultado2=mysql_query("Select * from position where id='$id_cargo'") or die ("Erro ao buscar cargo do funcionario");
+		while($linha2=mysql_fetch_array($resultado2))
+		$positionName=$linha2["name"];
+		
    $name=$linha["name"];
    $cpf=$linha["cpf"];
    $mail=$linha["mail"];
@@ -51,18 +57,16 @@
    print("<td>$name</td>");
    print("<td>$cpf</td>");
    print("<td>$mail</td>");
+   print("<td>$positionName</td>");
     print("<td><a href='../trafegoDados/deletaFuncionario.php?cod=$id '><button type='button'  class='btn'>Deletar
 										<span class='glyphicon glyphicon-trash' aria-hidden='true'></span> </button></a>");
 	print("<td><a href='../trafegoDados/alteraFuncionario.php?cod=$id '><button type='button'  class='btn'>Editar
 										<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span> </button></a>");    }
    print("</table></center>");
+			
 ?>
 	  </div>
       
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.Todos os direitos reservados ao time de desenvolvimento</p>
-      </footer>
 
     </div> <!-- /container -->
 </body>

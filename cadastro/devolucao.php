@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Devolução</title>
   <meta name="viewport" content="width=device-width">
-  
 </head>
 <body>
 <div class="container">
@@ -57,6 +56,7 @@ require("../conecta.inc");
    print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '><button type='button'  class='btn'>Devolver
 										<span class='glyphicon glyphicon-inbox' aria-hidden='true'></span> </button></a>");     }
    print("</table></center>");
-?>	   
+?>	
+
 </body>
 </html>

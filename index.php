@@ -31,13 +31,6 @@
         <p class="lead">Este portal tem como objetivo digitalizar o processo de aluguel de livros.</p>
       </div>
 
-      
-
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.Todos os direitos reservados ao time de desenvolvimento</p>
-      </footer>
-
     </div> <!-- /container -->
 </body>
 </html>

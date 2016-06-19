@@ -224,7 +224,7 @@ $(document).ready(function() {
 	<div class="form-group">
 	 Funcionario:  <select name="employee">
 	<?php
-			$resultado=mysql_query("Select * from employee order by id") or die ("Não é possível consultar Funcionario.");
+			$resultado=mysql_query("Select * from employee WHERE id_position='2' order by id") or die ("Não é possível consultar Funcionario.");
 				while ($linha=mysql_fetch_array($resultado))
 				{
 					$id=$linha["id"];
