@@ -20,7 +20,6 @@
             <li><a href="../visualizacao/visualizacaoLivro.php">Visualização de Livro</a></li>
             <li><a href="../visualizacao/visualizacaoCliente.php">Visualização de Clientes</a></li>
             <li><a href="../visualizacao/visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
-            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>
 			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>
@@ -83,6 +82,6 @@ else
 	}		
 }
 ?>
- <p><a href="../cadastro/aluguel.php">Voltar</a>
+ <p><a href="../visualizacao/visualizacaoLivro.php">Voltar</a>
 </body>
 </html>

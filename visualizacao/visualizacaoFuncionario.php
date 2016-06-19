@@ -20,7 +20,6 @@
             <li><a href="visualizacaoLivro.php">Visualização de Livro</a></li>
             <li><a href="visualizacaoCliente.php">Visualização de Clientes</a></li>
             <li><a href="visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
-            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>
 			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>
@@ -28,7 +27,9 @@
 
       <div>
 	   <br><br>
-	  <a href="../cadastro/cadastroFuncionario.php"><button type="button"  class="btn">Novo Cadastro</button></a>
+		<a href="../cadastro/cadastroFuncionario.php"><button type="button"  class="btn">Novo Cadastro
+		<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+		</button></a>
 	  <?php
 		require("../conecta.inc");
 		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
@@ -50,8 +51,10 @@
    print("<td>$name</td>");
    print("<td>$cpf</td>");
    print("<td>$mail</td>");
-    print("<td><a href='../trafegoDados/deletaFuncionario.php?cod=$id '>Deletar</a></td>");
-	print("<td><a href='../trafegoDados/alteraFuncionario.php?cod=$id '>Alterar</a></td></tr>");   }
+    print("<td><a href='../trafegoDados/deletaFuncionario.php?cod=$id '><button type='button'  class='btn'>Deletar
+										<span class='glyphicon glyphicon-trash' aria-hidden='true'></span> </button></a>");
+	print("<td><a href='../trafegoDados/alteraFuncionario.php?cod=$id '><button type='button'  class='btn'>Editar
+										<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span> </button></a>");    }
    print("</table></center>");
 ?>
 	  </div>

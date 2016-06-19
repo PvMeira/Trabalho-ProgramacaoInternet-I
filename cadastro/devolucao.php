@@ -20,7 +20,6 @@
             <li><a href="../visualizacao/visualizacaoLivro.php">Visualização de Livro</a></li>
             <li><a href="../visualizacao/visualizacaoCliente.php">Visualização de Clientes</a></li>
             <li><a href="../visualizacao/visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
-            <li><a href="aluguel.php">Realizar Aluguel</a></li>
 			<li><a href="devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>

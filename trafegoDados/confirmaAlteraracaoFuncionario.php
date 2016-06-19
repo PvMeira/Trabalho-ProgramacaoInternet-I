@@ -20,7 +20,6 @@
             <li><a href="../visualizacao/visualizacaoLivro.php">Visualização de Livro</a></li>
             <li><a href="../visualizacao/visualizacaoCliente.php">Visualização de Clientes</a></li>
             <li><a href="../visualizacao/visualizacaoFuncionario.php">Visualização de Funcionarios</a></li>
-            <li><a href="../cadastro/aluguel.php">Realizar Aluguel</a></li>
 			<li><a href="../cadastro/devolucao.php">Realizar Devolução</a></li>     
           </ul>
         </nav>
@@ -34,12 +33,8 @@
 	$mail_alter=$_GET['mail_alter'];
 	$address_alter=$_GET['address_alter'];
 		
-  Enter a valid email address
-</div>
 	require("../conecta.inc");
-	conecta_bd() or die (<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Ops:</span>);
+	conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 	print("Alteração do Funcionario realizada:<p>");
 	print("$cod <b>$name_alter</b> <p>");
 	mysql_query("update employee set name='$name_alter', cpf='$cpf_alter',mail='$mail_alter',address='$address_alter' where id='$cod'") 
