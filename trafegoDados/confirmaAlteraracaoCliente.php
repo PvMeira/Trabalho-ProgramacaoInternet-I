@@ -36,10 +36,9 @@
 	require("../conecta.inc");
 	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
 	print("Alteração do Cliente:<p>");
-	print("$cod <b>$name_alter</b> <p>");
 	mysql_query("update client set name='$name_alter', cpf='$cpf_alter',mail='$mail_alter',address='$address_alter' where id='$cod'") 
 	or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar dados do Cliente!</div>");
-	print("<div class='alert alert-success' role='alert'>Dados do Cliente alterados com sucesso!</div>");
+	print("<div class='alert alert-success' role='alert'>Dados do Cliente alterados com sucesso!:$cod <b>$name_alter</b> <p></div>");
 ?>
 <p><a href="../visualizacao/visualizacaoCliente.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>

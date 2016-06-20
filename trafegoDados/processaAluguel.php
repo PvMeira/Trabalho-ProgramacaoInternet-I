@@ -61,8 +61,7 @@ else
 								if($rentCount > 3){
 									print("<div class='alert alert-danger' role='alert'>Desculpe mas este cliente ja chegou ao maximo de alugueis possiveis </div>");
 								}	
-								else{
-						
+								else{						
 									mysql_query("insert into rent (id_client, id_book, id_employee, avaliable, rentDate) values ('$client', '$book', '$employee', '$status','$date')") 
 									or die ("<div class='alert alert-danger' role='alert'>Não é possível realizar aluguel!</div>");
 										mysql_query("UPDATE book SET stash=stash-1 where id='$book'") 
