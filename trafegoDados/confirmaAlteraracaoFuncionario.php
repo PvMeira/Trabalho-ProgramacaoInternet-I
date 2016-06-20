@@ -35,7 +35,6 @@
 		
 	require("../conecta.inc");
 	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
-	print("Alteração do Funcionario :<p>");
 	mysql_query("update employee set name='$name_alter', cpf='$cpf_alter',mail='$mail_alter',address='$address_alter' where id='$cod'") 
 	or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar dados do Funcionario!</div>");
 	print("<div class='alert alert-success' role='alert'>Dados do Funcionario alterados com sucesso!:$cod <b>$name_alter</b> <p></div>");

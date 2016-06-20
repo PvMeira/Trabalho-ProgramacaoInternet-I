@@ -35,7 +35,6 @@
 	
 	require("../conecta.inc");
 	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
-	print("Alteração do Livro:<p>");
 	mysql_query("update book set name='$name_alter', writer='$writer_alter',pages='$pages_alter', stash='$stash_alter' where id='$cod'") 
 	or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar dados do Livro!</div>");
 	print("<div class='alert alert-success' role='alert'>Dados do livro alterados com sucesso!:$cod <b>$name_alter</b> <p></div>");
