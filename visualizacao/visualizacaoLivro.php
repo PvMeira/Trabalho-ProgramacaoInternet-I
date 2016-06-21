@@ -6,7 +6,17 @@
 <title>Visualização de Livros Cadastrados </title>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 <script type="text/javascript">
+
 
 $(document).ready(function() {	
 
@@ -152,14 +162,11 @@ $(document).ready(function() {
 </button></a>
 </div>
 <form method="GET" action="../trafegoDados/buscaLivro.php">
-<div class="form-group">
 	<label for="search">Buscar por Nome:</label>
 	<input type="text" id="search" name="search" maxlength="255" />
 	<button type="submit" class="btn btn-primary">
 	<span class="glyphicon glyphicon-search"></span>
-
 </button>
-</div>
 </form>
   <?php
 		require("../conecta.inc");
@@ -248,7 +255,7 @@ $(document).ready(function() {
 </fieldset>
 <fieldset>
 	<div class="form-group">
-	Data: <input type="text" name="date" placeholder="dd-mm-aaaa">
+	<p>Date: <input type="text" id="datepicker" name="date"></p>
 	</div>
 </fieldset>
 	<button type="submit" class="btn btn-primary">

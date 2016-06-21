@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
@@ -9,7 +9,6 @@
 </head>
 <body>
 <div class="container">
-
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
@@ -25,16 +24,14 @@
         </nav>
       </div>
 
-      <div>
-	  <br><br>
-	  
+      <div>  
 <?php
 $search=$_GET["search"];
 require("../conecta.inc");
 			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
 			$resultado=mysql_query("Select * from book WHERE  name LIKE'$search'") or die ("Não é possível consultar busca de livro.");
 
-print("<center><h2>Mostrando Busca</h2>");
+				print("<center><h2>Mostrando Busca</h2>");
 				print("<table class='display table' width='90%'>");
 				print("<tr><td><b>Código</td>");
 				print("<td><b>Nome</td>");
@@ -55,9 +52,10 @@ while ($linha=mysql_fetch_array($resultado)) {
 			  print("</table></center>");
 }
 ?>
+ </div>
 		<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
- </div>
+
 
   </div>   
 
