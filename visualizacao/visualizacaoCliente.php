@@ -31,6 +31,7 @@
 	  <a href="../cadastro/cadastroCliente.php"><button type="button"  class="btn">Novo Cadastro
 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 </button></a>
+<br>
 <form method="GET" action="../trafegoDados/buscaCliente.php">
 	<label for="search">Buscar por CPF:</label>
 	<input type="text" id="search" name="search" maxlength="255" />

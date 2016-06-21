@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Busca de  Cliente</title>
+  <title>Busca de Funcioanrio</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -32,7 +32,7 @@
 $search=$_GET["search"];
 require("../conecta.inc");
 			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-			$resultado=mysql_query("Select * from client WHERE  cpf LIKE'$search'") or die ("Não é possível consultar busca de clientes.");
+			$resultado=mysql_query("Select * from employee WHERE  cpf LIKE'$search'") or die ("Não é possível consultar busca de Funcionario.");
 
 print("<center><h2>Mostrando Busca</h2>");
 				print("<table class='display table' width='90%'>");
@@ -52,7 +52,7 @@ while ($linha=mysql_fetch_array($resultado)) {
 			  print("</table></center>");
 }
 ?>
-		<p><a href="../visualizacao/visualizacaoCliente.php"><button type='button'  class='btn'>Voltar
+		<p><a href="../visualizacao/visualizacaoFuncionario.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
 

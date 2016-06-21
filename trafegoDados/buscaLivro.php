@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Busca de  Cliente</title>
+  <title>Busca de Livro</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -32,27 +32,30 @@
 $search=$_GET["search"];
 require("../conecta.inc");
 			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-			$resultado=mysql_query("Select * from client WHERE  cpf LIKE'$search'") or die ("Não é possível consultar busca de clientes.");
+			$resultado=mysql_query("Select * from book WHERE  name LIKE'$search'") or die ("Não é possível consultar busca de livro.");
 
 print("<center><h2>Mostrando Busca</h2>");
 				print("<table class='display table' width='90%'>");
 				print("<tr><td><b>Código</td>");
 				print("<td><b>Nome</td>");
-				print("<td><b>cpf</td>");
-				print("<td><b>mail</td>");
+				print("<td><b>Autor</td>");
+				print("<td><b>Paginas</td>");
+				print("<td><b>Estoque</td>");
 while ($linha=mysql_fetch_array($resultado)) { 
 		$id=$linha["id"];
 		$name=$linha["name"];
-		$cpf=$linha["cpf"];
-		$mail=$linha["mail"];
+		$writer=$linha["writer"];
+		$pages=$linha["pages"];
+		$stash=$linha["stash"];
 			  print("<tr><td>$id</td>");
 			  print("<td>$name</td>");
-			  print("<td>$cpf</td>");
-			  print("<td>$mail</td>");
+			  print("<td>$writer</td>");
+			  print("<td>$pages</td>");
+			   print("<td>$stash</td>");
 			  print("</table></center>");
 }
 ?>
-		<p><a href="../visualizacao/visualizacaoCliente.php"><button type='button'  class='btn'>Voltar
+		<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
 

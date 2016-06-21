@@ -30,6 +30,12 @@
 		<a href="../cadastro/cadastroFuncionario.php"><button type="button"  class="btn">Novo Cadastro
 		<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 		</button></a>
+		<br>
+<form method="GET" action="../trafegoDados/buscaFuncionario.php">
+	<label for="search">Buscar por CPF:</label>
+	<input type="text" id="search" name="search" maxlength="255" />
+	<input type="submit" value="OK" />
+</form>
 	  <?php
 		require("../conecta.inc");
 		conecta_bd() or die ("Não é possível conectar-se ao servidor.");

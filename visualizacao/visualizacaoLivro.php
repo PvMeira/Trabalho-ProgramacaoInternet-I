@@ -151,6 +151,14 @@ $(document).ready(function() {
 <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
 </button></a>
 </div>
+<br>
+<form method="GET" action="../trafegoDados/buscaLivro.php">
+<div class="form-group">
+	<label for="search">Buscar por Nome:</label>
+	<input type="text" id="search" name="search" maxlength="255" />
+	<input type="submit" value="OK" />
+</div>
+</form>
   <?php
 		require("../conecta.inc");
 		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
