@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Confirmar</title>
+  <title>Deletar Funcionario</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -33,7 +33,7 @@
 		mysql_query("delete from employee where id='$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível deletar Funcionario!</div>");
 		print("<div class='alert alert-success' role='alert'>Funcionario deletado com sucesso (código): $cod</div>");
 ?>
-<p><a href="../visualizacao/visualizacaoFuncioanrio.php"><button type='button'  class='btn'>Voltar
+<p><a href="../visualizacao/visualizacaoFuncionario.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
       

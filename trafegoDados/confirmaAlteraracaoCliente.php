@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Editar Funcionario</title>
+  <title>Editar Cliente</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
