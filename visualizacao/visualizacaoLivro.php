@@ -151,12 +151,14 @@ $(document).ready(function() {
 <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
 </button></a>
 </div>
-<br>
 <form method="GET" action="../trafegoDados/buscaLivro.php">
 <div class="form-group">
 	<label for="search">Buscar por Nome:</label>
 	<input type="text" id="search" name="search" maxlength="255" />
-	<input type="submit" value="OK" />
+	<button type="submit" class="btn btn-primary">
+	<span class="glyphicon glyphicon-search"></span>
+
+</button>
 </div>
 </form>
   <?php

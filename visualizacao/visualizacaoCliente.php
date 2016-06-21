@@ -26,7 +26,6 @@
       </div>
 
       <div>
-	  <br><br>
 	  
 	  <a href="../cadastro/cadastroCliente.php"><button type="button"  class="btn">Novo Cadastro
 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
@@ -35,7 +34,10 @@
 <form method="GET" action="../trafegoDados/buscaCliente.php">
 	<label for="search">Buscar por CPF:</label>
 	<input type="text" id="search" name="search" maxlength="255" />
-	<input type="submit" value="OK" />
+	<button type="submit" class="btn btn-primary">
+	<span class="glyphicon glyphicon-search"></span>
+  
+</button>
 </form>
 	  <?php
 			require("../conecta.inc");
