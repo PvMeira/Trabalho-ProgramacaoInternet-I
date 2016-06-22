@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Devolução</title>
+  <title>Historico</title>
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
@@ -25,20 +25,17 @@
       </div>
 
       <div>
-		<a href="../trafegoDados/processaHistorico.php"><button type="button"  class="btn">historico
-		<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-		</button></a>
 <?php
 require("../conecta.inc");
 		conecta_bd() or die ("Não é possível conectar-se ao servidor.");
-		$resultado=mysql_query("Select * from rent where avaliable='alugado' order by id") or die ("Não é possível consultar Alugueis.");
+		$resultado=mysql_query("Select * from rent where avaliable='Devolvido' order by id") or die ("Não é possível consultar Alugueis.");
 		
 		print("<center><h2>Mostrando os alugueis</h2>");
 		print("<table class='display table' width='90%'>");
 		print("<tr><td><b>Código</td>");
 		print("<td><b>livro</td>");
 		print("<td><b>cliente</td>");
-		print("<td><b>Devolver</td>");
+		
 			while ($linha=mysql_fetch_array($resultado))  
 {
   
@@ -56,8 +53,7 @@ require("../conecta.inc");
    print("<tr><td>$id</td>");
    print("<td>$bookName</td>");
    print("<td>$clientName</td>");
-   print("<td><a href='../trafegoDados/processaDevolucao.php?cod=$id & cod_book=$book & cod_client=$client '><button type='button'  class='btn'>Devolver
-										<span class='glyphicon glyphicon-inbox' aria-hidden='true'></span> </button></a>");     }
+       }
    print("</table></center>");
 ?>	
 

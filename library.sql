@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.2
+-- version 3.4.9
 -- http://www.phpmyadmin.net
 --
--- Máquina: localhost
--- Data de Criação: 21-Jun-2016 às 20:33
--- Versão do servidor: 5.6.13
--- versão do PHP: 5.4.17
+-- Servidor: localhost
+-- Tempo de Geração: 22/06/2016 às 02h21min
+-- Versão do Servidor: 5.5.20
+-- Versão do PHP: 5.3.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de Dados: `library`
+-- Banco de Dados: `library`
 --
-CREATE DATABASE IF NOT EXISTS `library` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `library`;
 
 -- --------------------------------------------------------
 
@@ -35,18 +33,18 @@ CREATE TABLE IF NOT EXISTS `book` (
   `pages` varchar(100) NOT NULL,
   `stash` int(100) NOT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Extraindo dados da tabela `book`
 --
 
 INSERT INTO `book` (`id`, `name`, `writer`, `pages`, `stash`) VALUES
-(8, 'Harry Potter: As reliquias Da Morte  pt1', 'J.K.Rolling', '345', 20),
-(11, 'Protocolo Molotov', 'nÃ£o sei direito', '223', 3),
+(8, 'Harry Potter: As reliquias Da Morte  ', 'J.K.Rolling', '345', 20),
 (12, 'Spring FrameWork', 'Henrique Lobos Jr', '266', 1),
 (13, 'ReflexÃµes e AnotaÃ§Ãµes JAVA', 'Eduardo Guerra', '155', 4),
-(14, 'Jsf and Jpa JAVA', 'Gilliard Correro', '345', 5);
+(14, 'Jsf and Jpa JAVA', 'Gilliard Correro', '345', 5),
+(15, 'Spring Boot ', 'Jeff Malec', '345', 5);
 
 -- --------------------------------------------------------
 
@@ -63,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `rentCount` int(11) NOT NULL,
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   UNIQUE KEY `is` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Extraindo dados da tabela `client`
@@ -71,12 +69,12 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 INSERT INTO `client` (`name`, `phone`, `mail`, `cpf`, `address`, `rentCount`, `id`) VALUES
 ('Joao Paulo de Zouza ', '(51)321456789', 'Zouza@teste.com', '86874787078', 'Rua Palmeiras do pinhal', -1, 3),
-('Cliente 02', '(41)1443.4444', 'cliente02@test.com', '78945612302', 'Rua imaginaria 02', 0, 7),
-('Cliente 03', '(41)1443.4444', 'cliente03@test.com', '78945612303', 'Rua imaginaria 03', 0, 8),
+('Cliente ', '(41)1443.4444', 'cliente03@test.com', '78945612303', 'Rua imaginaria 03', 0, 8),
 ('Cliente 04', '(41)1443.4444', 'cliente04@test.com', '78945612304', 'Rua imaginaria 04', 1, 9),
 ('Cliente 05', '(41)1443.4444', 'cliente05@test.com', '78945612305', 'Rua imaginaria 05', 0, 10),
 ('Cliente 06', '(41)1443.4444', 'cliente06@test.com', '78945612306', 'Rua imaginaria 06', 0, 11),
-('Juliana Cunha', '(51)81654329', 'jcunha123@uol.com', '987.635.878.01', 'Rua fernando Queiroz apt 801 bloco A', 0, 12);
+('Juliana Cunha', '(51)81654329', 'jcunha123@uol.com', '987.635.878.01', 'Rua fernando Queiroz apt 801 bloco A', 0, 12),
+('Fulano', '55.9898.7654', 'pc.stefa@not.com', '869.874.456.66', 'Rua Palmeiras do pinhal', 0, 13);
 
 -- --------------------------------------------------------
 
@@ -93,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `id_position` int(11) NOT NULL,
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Extraindo dados da tabela `employee`
@@ -104,7 +102,8 @@ INSERT INTO `employee` (`name`, `phone`, `mail`, `cpf`, `address`, `id_position`
 ('Luiza Cunha ', '(51)321456789', 'lzc@yahoo.com', '86874787878', 'Rua Palmeiras do pinhal', 3, 5),
 ('FÃ¡bio Souza', '(51)321456789', 'fsouza198@gmail.com', '86874787878', 'Rua Palmeiras do pinhal', 2, 6),
 ('Geraldo Frutuoso Da Silva', '(51) 87654321', 'gfrut@gmail.com', '78945612300', 'Rua da fruta ', 2, 7),
-('Jaqueline Fernandez', '(51) 87654321', 'jque@gmail.com', '987.564.234.11', 'Rua fernando Pirez apt 101 bloco B', 2, 8);
+('Jaqueline Fernandez', '(51) 87654321', 'jque@gmail.com', '987.564.234.11', 'Rua fernando Pirez apt 101 bloco B', 2, 8),
+('JoÃ£o Paulo Pinto', '44.9876.0098', 'Zouza@teste.com', '333.876.765.09', 'Rua Palmeiras do pinhal', 3, 9);
 
 -- --------------------------------------------------------
 
@@ -141,24 +140,13 @@ CREATE TABLE IF NOT EXISTS `rent` (
   `id_employee` int(11) DEFAULT NULL,
   `avaliable` varchar(50) DEFAULT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Extraindo dados da tabela `rent`
 --
 
 INSERT INTO `rent` (`id`, `rentDate`, `id_client`, `id_book`, `id_employee`, `avaliable`) VALUES
-(20, '11/11/2222', 3, 5, 2, 'Devolvido'),
-(21, '11/11/2222', 3, 6, 2, 'Devolvido'),
-(22, '11/11/2222', 3, 6, 2, 'Devolvido'),
-(23, '11/11/2222', 3, 6, 2, 'Devolvido'),
-(24, '11/11/2222', 3, 4, 2, 'Devolvido'),
-(25, '11/11/2017', 3, 6, 2, 'Devolvido'),
-(26, '11/11/2015', 4, 4, 2, 'Devolvido'),
-(27, '11/11/2016', 4, 6, 2, 'Devolvido'),
-(28, '11/11/2222', 4, 4, 2, 'Devolvido'),
-(29, '11/11/2222', 4, 4, 2, 'Devolvido'),
-(30, '19/06/2016', 5, 8, 2, 'Devolvido'),
 (31, '11/11/2016', 3, 8, 2, 'Devolvido'),
 (32, '11/11/2222', 3, 6, 2, 'Devolvido'),
 (33, '11/11/2015', 3, 6, 2, 'Devolvido'),
@@ -174,7 +162,8 @@ INSERT INTO `rent` (`id`, `rentDate`, `id_client`, `id_book`, `id_employee`, `av
 (43, '06/22/2016', 12, 12, 8, 'Devolvido'),
 (44, '06/22/2016', 12, 6, 8, 'Devolvido'),
 (45, '06/30/2016', 12, 6, 8, 'Devolvido'),
-(46, '06/24/2016', 9, 12, 8, 'Alugado');
+(46, '06/24/2016', 9, 12, 8, 'Alugado'),
+(47, '06/22/2016', 13, 15, 8, 'Devolvido');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
