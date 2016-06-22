@@ -1,15 +1,14 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Editar Cliente</title>
+  <title>Busca de Livro</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
 <body>
 <div class="container">
-
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
@@ -25,22 +24,41 @@
         </nav>
       </div>
 
-      <div>
+      <div>  
 <?php
-	$cod=$_GET['id_alter'];
-	$name_alter=$_GET['name_alter'];
-	$cpf_alter=$_GET['cpf_alter'];
-	$mail_alter=$_GET['mail_alter'];
-	$address_alter=$_GET['address_alter'];
-	
-	require("../conecta.inc");
-	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
-	mysql_query("update client set name='$name_alter', cpf='$cpf_alter',mail='$mail_alter',address='$address_alter' where id='$cod'") 
-	or die ("<div class='alert alert-danger' role='alert'>Não é possível alterar dados do Cliente!</div>");
-	print("<div class='alert alert-success' role='alert'>Dados do Cliente alterados com sucesso!:$cod <b>$name_alter</b> <p></div>");
+$search=$_GET["search"];
+require("../conecta.inc");
+			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+			$resultado=mysql_query("Select * from book WHERE  name LIKE'$search'") or die ("Não é possível consultar busca de livro.");
+
+				print("<center><h2>Mostrando Busca</h2>");
+				print("<table class='display table' width='90%'>");
+				print("<tr><td><b>Código</td>");
+				print("<td><b>Nome</td>");
+				print("<td><b>Autor</td>");
+				print("<td><b>Paginas</td>");
+				print("<td><b>Estoque</td>");
+while ($linha=mysql_fetch_array($resultado)) { 
+		$id=$linha["id"];
+		$name=$linha["name"];
+		$writer=$linha["writer"];
+		$pages=$linha["pages"];
+		$stash=$linha["stash"];
+			  print("<tr><td>$id</td>");
+			  print("<td>$name</td>");
+			  print("<td>$writer</td>");
+			  print("<td>$pages</td>");
+			   print("<td>$stash</td>");
+			  print("</table></center>");
+}
 ?>
-<p><a href="../visualizacao/visualizacaoCliente.php"><button type='button'  class='btn'>Voltar
+ </div>
+		<p><a href="../visualizacao/visualizacaoLivro.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
- 
+
+
+  </div>   
+
+    </div> <!-- /container -->
 </body>
 </html>

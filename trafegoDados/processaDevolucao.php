@@ -33,7 +33,6 @@ $cod_client=$_GET['cod_client'];
 
 	require("../conecta.inc");
 	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
-	print("Realizando o Devolução:<p>");
 		mysql_query("UPDATE rent SET avaliable='Devolvido' where id='$cod'") 
 			or die ("<div class='alert alert-danger' role='alert'>Não é possível realizar a devolução!</div>");
 			mysql_query("UPDATE book SET stash=stash+1 where id='$cod_book'") 

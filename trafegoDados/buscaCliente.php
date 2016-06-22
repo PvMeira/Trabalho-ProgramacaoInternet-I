@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="../css/bootstrap.css">
   <meta charset="UTF-8">
-  <title>Deletar Funcionario</title>
+  <title>Busca de  Cliente</title>
   <meta name="viewport" content="width=device-width">
   
 </head>
@@ -26,17 +26,37 @@
       </div>
 
       <div>
+	  <br><br>
+	  
 <?php
-	$cod=$_GET['cod'];
-	require("../conecta.inc");
-	conecta_bd() or die ("<div class='alert alert-danger' role='alert'>Não foi possivel realizar conexão com o Banco de Dados</div>");
-		mysql_query("delete from employee where id='$cod'") or die ("<div class='alert alert-danger' role='alert'>Não é possível deletar Funcionario!</div>");
-		print("<div class='alert alert-success' role='alert'>Funcionario deletado com sucesso (código): $cod</div>");
+$search=$_GET["search"];
+require("../conecta.inc");
+			conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+			$resultado=mysql_query("Select * from client WHERE  cpf LIKE'$search'") or die ("Não é possível consultar busca de clientes.");
+
+print("<center><h2>Mostrando Busca</h2>");
+				print("<table class='display table' width='90%'>");
+				print("<tr><td><b>Código</td>");
+				print("<td><b>Nome</td>");
+				print("<td><b>cpf</td>");
+				print("<td><b>mail</td>");
+while ($linha=mysql_fetch_array($resultado)) { 
+		$id=$linha["id"];
+		$name=$linha["name"];
+		$cpf=$linha["cpf"];
+		$mail=$linha["mail"];
+			  print("<tr><td>$id</td>");
+			  print("<td>$name</td>");
+			  print("<td>$cpf</td>");
+			  print("<td>$mail</td>");
+			  print("</table></center>");
+}
 ?>
-<p><a href="../visualizacao/visualizacaoFuncionario.php"><button type='button'  class='btn'>Voltar
+		<p><a href="../visualizacao/visualizacaoCliente.php"><button type='button'  class='btn'>Voltar
 		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span> </button></a>
  </div>
-      
+
+  </div>   
 
     </div> <!-- /container -->
 </body>
